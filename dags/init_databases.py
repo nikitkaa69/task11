@@ -18,7 +18,7 @@ default_args = {
     template_searchpath=['/opt/airflow/scripts']
 )
 def init_databases():
-    init_pagila_schema = SQLExecuteQueryOperator(s
+    init_pagila_schema = SQLExecuteQueryOperator(
         task_id='init_pagila_schema',
         conn_id='postgres_pagila',
         sql='pagila-schema.sql',
