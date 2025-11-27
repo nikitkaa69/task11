@@ -1,0 +1,17 @@
+logs/
+plugins/
+config/airflow.cfg
+airflow-webserver.pid
+airflow.db
+airflow.db-journal
+
+
+__pycache__/
+*.pyc
+
+
+.idea/
+.vscode/
+
+postgres-db-volume/
+mysql-db-volume/
