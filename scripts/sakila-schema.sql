@@ -3,7 +3,7 @@ DROP SCHEMA IF EXISTS sakila;
 CREATE SCHEMA sakila;
 USE sakila;
 
--- Таблицы --
+-- TABLES --
 
 CREATE TABLE actor (
   actor_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
