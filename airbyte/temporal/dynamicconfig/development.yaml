@@ -1,0 +1,12 @@
+frontend.enableServerVersionCheck:
+  - value: true
+    constraints: {}
+history.persistenceMaxQPS:
+  - value: 3000
+    constraints: {}
+frontend.persistenceMaxQPS:
+  - value: 3000
+    constraints: {}
+matching.persistenceMaxQPS:
+  - value: 3000
+    constraints: {}

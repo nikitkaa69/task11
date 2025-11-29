@@ -15,3 +15,6 @@ __pycache__/
 
 postgres-db-volume/
 mysql-db-volume/
+
+
+airbyte/.env
