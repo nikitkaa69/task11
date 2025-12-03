@@ -39,5 +39,5 @@ GRANT CREATE STAGE ON SCHEMA airbyte_database.PUBLIC TO ROLE airbyte_role;
 GRANT CREATE FILE FORMAT ON SCHEMA airbyte_database.PUBLIC TO ROLE airbyte_role;
 
 -- 5. Grant access to current user for verification
-SET my_user = (SELECT CURRENT_USER());
-GRANT ROLE airbyte_role TO USER IDENTIFIER($my_user);
+-- SET my_user = (SELECT CURRENT_USER());
+-- GRANT ROLE airbyte_role TO USER IDENTIFIER($my_user);
