@@ -1,9 +1,7 @@
 import pendulum
 from airflow.decorators import dag
 from airflow.providers.airbyte.operators.airbyte import AirbyteTriggerSyncOperator
-
-PAGILA_CONN_ID = '55d1f91d-7b2d-42a4-ba2e-b0094f39cc8a'
-SAKILA_CONN_ID = '787236bc-05bc-4900-84fc-0625fa07dc67'
+from config import AIRBYTE_PAGILA_CONN_ID, AIRBYTE_SAKILA_CONN_ID
 
 default_args = {
     'owner': 'airflow',
@@ -23,7 +21,7 @@ def airbyte_syncs_polling():
     trigger_pagila = AirbyteTriggerSyncOperator(
         task_id='trigger_pagila_postgres',
         airbyte_conn_id='airbyte_conn_polling',
-        connection_id=PAGILA_CONN_ID,
+        connection_id=AIRBYTE_PAGILA_CONN_ID,
         asynchronous=False,
         timeout=3600,
         wait_seconds=10
@@ -32,7 +30,7 @@ def airbyte_syncs_polling():
     trigger_sakila = AirbyteTriggerSyncOperator(
         task_id='trigger_sakila_mysql',
         airbyte_conn_id='airbyte_conn_polling',
-        connection_id=SAKILA_CONN_ID,
+        connection_id=AIRBYTE_SAKILA_CONN_ID,
         asynchronous=False,
         timeout=3600,
         wait_seconds=10
