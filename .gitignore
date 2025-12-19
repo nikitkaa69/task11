@@ -4,7 +4,8 @@ config/airflow.cfg
 airflow-webserver.pid
 airflow.db
 airflow.db-journal
-
+scripts/*.sql
+!scripts/snowflake_init.sql
 
 __pycache__/
 *.pyc
@@ -15,3 +16,6 @@ __pycache__/
 
 postgres-db-volume/
 mysql-db-volume/
+
+
+airbyte/.env
