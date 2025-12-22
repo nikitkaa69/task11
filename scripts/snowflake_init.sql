@@ -60,6 +60,9 @@ GRANT OPERATE ON WAREHOUSE compute_wh TO ROLE airflow_service_role;
 -- Grant permission to read the Airbyte database (Airflow should see that the data has arrived)
 GRANT USAGE ON DATABASE airbyte_database TO ROLE airflow_service_role;
 GRANT USAGE ON SCHEMA airbyte_database.PUBLIC TO ROLE airflow_service_role;
+GRANT USAGE ON SCHEMA airbyte_database.PAGILA TO ROLE airflow_service_role;
+GRANT SELECT ON ALL TABLES IN SCHEMA airbyte_database.PAGILA TO ROLE airflow_service_role;
+GRANT SELECT ON FUTURE TABLES IN SCHEMA airbyte_database.PAGILA TO ROLE airflow_service_role;
 GRANT SELECT ON ALL TABLES IN SCHEMA airbyte_database.PUBLIC TO ROLE airflow_service_role;
 GRANT SELECT ON FUTURE TABLES IN SCHEMA airbyte_database.PUBLIC TO ROLE airflow_service_role;
 
@@ -67,3 +70,5 @@ GRANT SELECT ON FUTURE TABLES IN SCHEMA airbyte_database.PUBLIC TO ROLE airflow_
 -- Grant ownership of the analytics database (where DBT will write models)
 CREATE DATABASE IF NOT EXISTS analytics_database;
 GRANT OWNERSHIP ON DATABASE analytics_database TO ROLE airflow_service_role;
+GRANT OWNERSHIP ON SCHEMA analytics_database.PUBLIC TO ROLE airflow_service_role REVOKE CURRENT GRANTS;
+GRANT ALL ON SCHEMA analytics_database.PUBLIC TO ROLE airflow_service_role;
