@@ -1,12 +1,11 @@
 with source as (
-    select * from {{ source('pagila', 'city') }}
+    select * from {{ source('pagila', 'language') }}
 ),
 
 renamed as (
     select
-        city_id,
-        city,
-        country_id,
+        language_id,
+        name as language_name,
         last_update
     from source
 )

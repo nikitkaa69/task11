@@ -1,12 +1,15 @@
 with customer as (
     select * from {{ ref('stg_customer') }}
 ),
+
 address as (
     select * from {{ ref('stg_address') }}
 ),
+
 city as (
     select * from {{ ref('stg_city') }}
 ),
+
 country as (
     select * from {{ ref('stg_country') }}
 ),
@@ -20,7 +23,8 @@ joined as (
         c.is_active,
         a.address,
         ci.city,
-        co.country
+        co.country,
+        c.store_id
     from customer c
     left join address a on c.address_id = a.address_id
     left join city ci on a.city_id = ci.city_id

@@ -8,6 +8,7 @@ payment as (
 joined as (
     select
         r.rental_id,
+        r.inventory_id,
         r.customer_id,
         r.staff_id,
         r.rental_date,

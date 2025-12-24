@@ -12,7 +12,8 @@ renamed as (
         address_id,
         activebool as is_active,
         create_date,
-        last_update
+        last_update,
+        active
     from source
 )
 
